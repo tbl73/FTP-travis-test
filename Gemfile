@@ -4,6 +4,7 @@ gem 'rails', '4.1.2'
 
 gem 'pry'
 gem 'pry-byebug'
+gem 'pry-stack_explorer'
 
 gem 'will_paginate'
 gem 'rmagick', '2.13.2', require: "RMagick"

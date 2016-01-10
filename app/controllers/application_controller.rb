@@ -191,10 +191,18 @@ class ApplicationController < ActionController::Base
 
   # Redirect to admin or owner dashboard after sign in
   def after_sign_in_path_for(resource)
-    if current_user.admin
-      admin_path
+    if session[:nexturl]
+      nexturl = session[:nexturl]
+      nexturl['controller'] = nexturl['controller'].sub(/^/, '/') if nexturl['controller']
+      session[:nexturl]=nil
+      binding.pry
+      url_for nexturl
     else
-      dashboard_watchlist_path
+      if current_user.admin
+        admin_path
+      else
+        dashboard_watchlist_path
+      end      
     end
   end
 
@@ -207,8 +215,33 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def billing_host
+    if defined? BILLING_HOST
+      BILLING_HOST
+    else
+      if params[:debug_billing]
+        session[:debug_billing]=true
+      end
+      if session[:debug_billing]
+        if defined? BILLING_HOST_DEVELOPMENT
+          BILLING_HOST_DEVELOPMENT
+        else
+          nil
+        end
+      else
+        nil
+      end
+    end
+  end
+
+
+
 end
+
+
 
 # class ApplicationController < ActionController::Base
 #   protect_from_forgery
 # end
+
+

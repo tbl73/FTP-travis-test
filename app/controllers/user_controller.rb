@@ -38,4 +38,20 @@ class UserController < ApplicationController
     deed.save!
   end
 
+  def new_project_check_devise
+    plan = params[:plan]
+    
+    if signed_in?
+      redirect_to :action => :new_project_billing, :plan => params[:plan]
+    else
+#      binding.pry
+      session[:nexturl] = { :controller => :user, :action => :new_project_billing, :plan => params[:plan]}
+      redirect_to new_user_session_path
+    end
+  end
+
+  def new_project_billing
+    redirect_to "http://#{billing_host}/charges/new?plan_id=#{params[:plan]}&user_id=#{current_user.id}&email=#{current_user.email}"
+  end
+
 end

@@ -38,4 +38,7 @@ Rails.application.configure do
   # location of system calls on this machine
   NEATO = '/usr/bin/neato'
   RAKE = '/usr/bin/env rake'
+  
+  BILLING_HOST = 'localhost:3001'
+  BILLING_HOST_DEVELOPMENT = 'localhost:3001'
 end
