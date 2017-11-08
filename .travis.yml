@@ -17,9 +17,9 @@ add-ons:
       - qtdeclarative5-dev
 
 before_script:
-  - rake db:create
-  - rake db:migrate
-  - rake db:fixtures:load FIXTURES_PATH=spec/fixtures
+  - bundle exec rake db:create
+  - bundle exec rake db:migrate
+  - bundle exec rake db:fixtures:load FIXTURES_PATH=spec/fixtures
 
 script:
   - xvfb-run bundle exec rspec spec/features/*.rb
