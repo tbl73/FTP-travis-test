@@ -10,6 +10,9 @@ rvm:
 services:
   - mysql
 
+addons:
+  mariadb: '10.0'
+
 before_install:
   - sudo apt-get -qq update
   - sudo apt-get install ghostscript
@@ -26,6 +29,9 @@ before_script:
 script:
   - xvfb-run bundle exec rspec spec/features/
 
-
-after_script:
-  - git ls-files -o --exclude=vendor/bundle/ --exclude=tmp/cache/ --exclude public/assets/
+branches:
+  only:
+    - master
+    - ui-design
+    - fromthepage.com
+    - indianapolis
