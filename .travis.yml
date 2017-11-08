@@ -3,23 +3,23 @@ sudo: false
 language: ruby
 
 rvm:
-  -2.2
+  - 2.2
 
 services:
-  -mysql
+  - mysql
 
 add-ons: 
   apt:
     sources:
-      -ubuntu-sdk-team
+      - ubuntu-sdk-team
     packages:
-      -libqt5webkit5-dev
-      -qtdeclarative5-dev
+      - libqt5webkit5-dev
+      - qtdeclarative5-dev
 
 before_script:
-  -rake db:create
-  -rake db:migrate
-  -rake db:fixtures:load FIXTURES_PATH=spec/fixtures
+  - rake db:create
+  - rake db:migrate
+  - rake db:fixtures:load FIXTURES_PATH=spec/fixtures
 
 script:
-  -xvfb-run bundle exec rspec spec/features/*.rb
+  - xvfb-run bundle exec rspec spec/features/*.rb
