@@ -10,13 +10,13 @@ rvm:
 services:
   - mysql
 
-add-ons: 
-  apt:
-    sources:
-      - ubuntu-sdk-team
-    packages:
-      - libqt5webkit5-dev
-      - qtdeclarative5-dev
+before_install:
+  - sudo apt-get -qq update
+  - sudo apt-get install ghostscript
+  - sudo apt-get install graphviz
+  - sudo apt-get install libqt5webkit5-dev
+  - sudo apt-get install qtdeclarative5-dev
+
 
 before_script:
   - bundle exec rake db:create
