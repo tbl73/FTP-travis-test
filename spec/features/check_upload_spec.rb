@@ -16,6 +16,11 @@ describe "check for successful data upload" do
       puts w.title
     end
 
+    DocumentUpload.all.each do |upload|
+      puts upload.file
+      puts upload.status
+    end
+
 =begin
     @work = Work.find_by(title: 'test')
     visit collection_read_work_path(@work.collection.owner, @work.collection, @work)

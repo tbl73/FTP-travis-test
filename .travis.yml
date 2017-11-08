@@ -2,6 +2,8 @@ dist: trusty
 sudo: require
 language: ruby
 
+cache: bundler
+
 rvm:
   - 2.2.0
 
@@ -23,7 +25,6 @@ before_script:
 
 script:
   - xvfb-run bundle exec rspec spec/features/add_data_spec.rb
-  - xvfb-run bundle exec rspec spec/features/archive_import_spec.rb
   - xvfb-run bundle exec rspec spec/features/check_upload_spec.rb
 
 
