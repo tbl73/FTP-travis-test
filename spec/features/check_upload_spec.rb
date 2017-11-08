@@ -8,7 +8,6 @@ describe "check for successful data upload" do
 
   it "checks that the file has been uploaded" do
     login_as(@owner, :scope => :user)
-    sleep(60)
     puts @owner.login
 
 
