@@ -10,16 +10,20 @@ describe "check for successful data upload" do
     login_as(@owner, :scope => :user)
     sleep(60)
     puts @owner.login
-    collection = Collection.second
-    puts collection.title
-    collection.works.each do |w|
-      puts w.title
-    end
+
 
     DocumentUpload.all.each do |upload|
       puts upload.file
       puts upload.status
     end
+
+    Collection.all.each do |c|
+      puts c.title
+      c.works.each do |w|
+        puts w.title
+      end
+    end
+
 
 =begin
     @work = Work.find_by(title: 'test')

@@ -29,4 +29,4 @@ script:
 
 
 after_script:
-  - git ls-files -o
+  - git ls-files -o --directory --exclude=vendor/bundle/ --exclude=tmp/cache/ --exclude public/assets/
