@@ -1,9 +1,9 @@
 dist: trusty
-sudo: false
+sudo: require
 language: ruby
 
 rvm:
-  - 2.2
+  - 2.2.0
 
 services:
   - mysql
