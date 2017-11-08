@@ -10,8 +10,12 @@ rvm:
 services:
   - mysql
 
-#addons:
-#  mariadb: '10.0.32'
+addons:
+  mariadb: '10.0.32'
+
+env:
+  - DB=mysql
+  - DB=mariadb
 
 before_install:
   - sudo apt-get -qq update
@@ -19,7 +23,6 @@ before_install:
   - sudo apt-get install graphviz
   - sudo apt-get install libqt5webkit5-dev
   - sudo apt-get install qtdeclarative5-dev
-
 
 before_script:
   - bundle exec rake db:create
