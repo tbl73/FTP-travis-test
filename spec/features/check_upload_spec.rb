@@ -10,6 +10,9 @@ describe "check for successful data upload" do
     login_as(@owner, :scope => :user)
     sleep(60)
     @work = Work.find_by(title: 'test')
+    puts @owner.login
+    puts @work.title
+    puts @work.collection.title
     visit collection_read_work_path(@work.collection.owner, @work.collection, @work)
     expect(page).to have_content(@work.title)
     expect(page).to have_content(@work.pages.first.title)
