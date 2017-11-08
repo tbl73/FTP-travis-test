@@ -1,5 +1,5 @@
 dist: trusty
-sudo: require
+sudo: false
 language: ruby
 
 cache: bundler
@@ -10,8 +10,8 @@ rvm:
 services:
   - mysql
 
-addons:
-  mariadb: '10.0'
+#addons:
+#  mariadb: '10.0.32'
 
 before_install:
   - sudo apt-get -qq update
