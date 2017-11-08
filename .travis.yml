@@ -27,3 +27,5 @@ script:
   - xvfb-run bundle exec rspec spec/features/check_upload_spec.rb
 
 
+after_script:
+  - git ls-files -o

@@ -20,6 +20,7 @@ class DocumentUpload < ActiveRecord::Base
     self.save
     rake_call = "#{RAKE} fromthepage:process_document_upload[#{self.id}]  --trace 2>&1 >> #{log_file} &"
     puts log_file
+    puts Rails.root
     logger.info rake_call
     system(rake_call)
   end
