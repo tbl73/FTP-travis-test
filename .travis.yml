@@ -10,6 +10,9 @@ rvm:
 services:
   - mysql
 
+addons:
+  mariadb: '10.0.32'
+
 before_install:
   - sudo apt-get -qq update
   - sudo apt-get install ghostscript
