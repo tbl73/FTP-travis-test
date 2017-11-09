@@ -6,8 +6,7 @@ cache: bundler
 
 rvm:
   - 2.2.0
-  - 2.4
-
+  
 services:
   - mysql
 
@@ -25,10 +24,3 @@ before_script:
 
 script:
   - xvfb-run bundle exec rspec spec/features/
-
-branches:
-  only:
-    - master
-    - ui-design
-    - fromthepage.com
-    - indianapolis
