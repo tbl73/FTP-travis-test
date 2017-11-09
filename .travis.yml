@@ -6,17 +6,10 @@ cache: bundler
 
 rvm:
   - 2.2.0
-  -2.4
+  - 2.4
 
 services:
   - mysql
-
-#addons:
-#  mariadb: '10.0.32'
-
-#env:
-#  - DB=mysql
-#  - DB=mariadb
 
 before_install:
   - sudo apt-get -qq update
