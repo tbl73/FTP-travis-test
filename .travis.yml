@@ -7,16 +7,12 @@ rvm:
 
 cache: bundler
 
-services:
-  - mysql
-
 matrix:
   include:
     - rvm: 2.2.0
       addons:
         mariadb: '10.0'
-      gemfile: 
-        - gemfiles/Gemfile.maria
+      gemfile: gemfiles/Gemfile.maria
     - rvm: 2.2.0
       env: DB=mysql
 
@@ -25,8 +21,6 @@ before_install:
   - sudo apt-get -qq update
   - sudo apt-get install ghostscript
   - sudo apt-get install graphviz
-  - sudo apt-get install libqt5webkit5-dev
-  - sudo apt-get install qtdeclarative5-dev
 
 before_script:
   - bundle exec rake db:create
