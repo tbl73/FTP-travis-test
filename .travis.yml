@@ -5,11 +5,10 @@ language: ruby
 rvm:
   - 2.2.0
 
-matrix:
-  include:
-    - rvm: 2.2.0
-      addons:
-        mariadb: '10.0'
+cache: bundler
+
+services:
+  - mysql
 
 before_install:
   - sudo apt-get -qq update
@@ -17,8 +16,6 @@ before_install:
   - sudo apt-get install graphviz
   - sudo apt-get install libqt5webkit5-dev
   - sudo apt-get install qtdeclarative5-dev
-  - gem uninstall mysql2
-  - bundle config build.mysql2 --with-mysql-config=/etc/mysql/
 
 before_script:
   - bundle exec rake db:create
