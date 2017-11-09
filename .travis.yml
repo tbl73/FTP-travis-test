@@ -10,8 +10,13 @@ rvm:
 services:
   - mysql
 
-addons:
-  mariadb: '10.0.32'
+matrix:
+  include:
+    - rvm: 2.2.0
+      addons:
+        mariadb: '10.0.32'
+    - rvm: 2.2.0
+      env: DB=mysql
 
 before_install:
   - sudo apt-get -qq update
