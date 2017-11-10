@@ -21,7 +21,7 @@ before_install:
   - bash .travis_setup.sh
 
 before_script:
-  - sh - c "if [ 'DB' = 'mysql57']; then bundle install; fi"
+  - if [ 'DB' = 'mysql57']; then bundle install; fi
   - bundle exec rake db:create
   - bundle exec rake db:migrate
   - bundle exec rake db:fixtures:load FIXTURES_PATH=spec/fixtures
