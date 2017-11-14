@@ -22,6 +22,11 @@ matrix:
         mariadb: '10.0'
       env: DB=mariadb
       gemfile: Gemfile
+    - rvm: 2.2.0
+      addons:
+        mariadb: '10.0'
+      env: DB=mariadb
+      gemfile: gemfiles/Gemfile.mysql57
 
 before_install:
   - sudo apt-get -qq update
