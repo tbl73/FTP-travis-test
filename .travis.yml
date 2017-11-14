@@ -1,6 +1,7 @@
 dist: trusty
 sudo: false
 language: ruby
+cache: bundler
 
 rvm:
   - 2.2.0
@@ -15,7 +16,7 @@ matrix:
       gemfile: gemfiles/Gemfile.mysql57
     - rvm: 2.2.0
       env: DB=mysql57
-      gemfile: gemfiles/Gemfile.mysql57
+      gemfile: gemfiles/Gemfile.mysql570
 
 before_install:
   - sudo apt-get -qq update
