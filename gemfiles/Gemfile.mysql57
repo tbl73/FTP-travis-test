@@ -44,7 +44,8 @@ end
 
 group :test do
   gem 'database_cleaner'
-  gem 'capybara'
+  #note: had to specify version b/c of issues with capybara-webkit
+  gem 'capybara', '2.13.0'
   gem 'shoulda'
 end
 
