@@ -4,3 +4,8 @@ set -eux
 if [[ -n ${DB-} && x$DB =~ ^xmysql57 ]]; then
   sudo bash .travis_mysql57.sh
 fi
+
+#Update mysql connector for maria db
+if [[ -n ${DB-} && x$DB =~ ^xmariadb ]]; then
+  sudo bash .travis_mariadb.sh
+fi
