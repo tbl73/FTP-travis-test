@@ -1,17 +1,12 @@
 #hook to prevent binding.pry getting into production code
-
-git diff --name-only HEAD^
-echo "Testing"
+echo "Testing for binding.pry"
 
 DIFF_SEARCH=$(git diff --name-only HEAD^ $AGAINST -G "binding\.pry")
-
-echo $DIFF_SEARCH
 
 if [ "$DIFF_SEARCH" ]; then
   echo "Found binding.pry in these files:"
   printf "$DIFF_SEARCH"
   echo
-
+  exit 1
 fi
 
-  exit 1
