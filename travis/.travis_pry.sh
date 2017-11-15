@@ -14,9 +14,9 @@ exec 1>&2
 
 DEBUGGERS_REGEX="binding\.pry|debugger"
 
-DIFF_SEARCH=$(git diff --name-only $AGAINST -G $DEBUGGERS_REGEX --exit-code)
+DIFF_SEARCH=$(git diff --name-only $AGAINST -G $DEBUGGERS_REGEX)
 
-if ["$DIFF_SEARCH"]; then
+if [ $DIFF_SEARCH ]; then
   echo "Found binding.pry in these files:"
   echo
   printf "$DIFF_SEARCH"
