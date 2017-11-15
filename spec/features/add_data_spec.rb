@@ -30,7 +30,6 @@ describe "uploads data for collections", :order => :defined do
     title = find('h1').text
     expect(title).to eq @collection.title
     expect(page).to have_content("Document has been uploaded")
-    binding.pry
   end
 
   it "imports IIIF manifests" do
@@ -70,6 +69,8 @@ describe "uploads data for collections", :order => :defined do
     click_button('Create Work')
     expect(page).to have_content("Here you see the list of all pages in the work.")
     expect(Work.find_by(title: @title)).not_to be nil
+    binding.pry
+
   end
 
   it "adds pages to an empty work" do
