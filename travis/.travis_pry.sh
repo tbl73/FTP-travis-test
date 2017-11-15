@@ -9,11 +9,13 @@ fi
 
 echo "Testing $TEST_BRANCH"
 
-#DIFF_SEARCH=$(git diff --name-only $TEST_BRANCH HEAD^ $AGAINST -G "binding\.pry")
+DIFF_SEARCH=$(git diff --name-only $TEST_BRANCH..HEAD^ $AGAINST -G "binding\.pry")
 
-DIFF_SEARCH=$(git diff --name-only HEAD^ $(git merge-base HEAD^ $TEST_BRANCH) $AGAINST -G "binding\.pry")
-
+echo "dif search is:"
 echo $DIFF_SEARCH
+
+git diff --name-only $TRAVIS_COMMIT $AGAINST -G "binding\.pry"
+
 
 if [ "$DIFF_SEARCH" ]; then
   echo "Found binding.pry in these files:"
