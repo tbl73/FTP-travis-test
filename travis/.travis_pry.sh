@@ -1,12 +1,9 @@
 #hook to prevent binding.pry getting into production code
 
-DEBUGGERS_REGEX="binding\.pry|debugger"
-
-echo $DEBUGGERS_REGEX
-
 git diff --name-only HEAD^
+echo "Testing"
 
-DIFF_SEARCH=$(git diff --name-only $AGAINST -G $DEBUGGERS_REGEX)
+DIFF_SEARCH=$(git diff --name-only $AGAINST -G "binding\.pry")
 
 echo $DIFF_SEARCH
 
