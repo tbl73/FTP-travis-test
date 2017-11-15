@@ -9,26 +9,16 @@ fi
 
 echo "Testing $TEST_BRANCH"
 
-#DIFF_SEARCH=$(git diff --name-only $TEST_BRANCH..HEAD $AGAINST -G "binding\.pry")
-echo "HEAD^"
-git diff --name-only HEAD^ $AGAINST -G "binding\.pry"
+DIFF_SEARCH=$(git diff --name-only $TRAVIS_COMMIT_RANGE)
 
-echo "travis commit"
-echo $TRAVIS_COMMIT
-git diff --name-only $TRAVIS_COMMIT
+REGEX="binding\.pry"
 
-echo "travis commit range"
-echo $TRAVIS_COMMIT_RANGE
-git diff --name-only $TRAVIS_COMMIT_RANGE $AGAINST -G "binding\.pry"
-#DIFF_SEARCH=$(git diff --name-only $TEST_BRANCH)
+PRY=$(grep -i $REGEX $DIFF_SEARCH)
 
-#echo "diff search is:"
-#echo $DIFF_SEARCH
-
-#if [ "$DIFF_SEARCH" ]; then
-#  echo "Found binding.pry in these files:"
-#  printf "$DIFF_SEARCH"
-#  echo
-#fi
+if [ "$PRY" ]; then
+  echo "Exit build; found binding.pry in these files:"
+  printf "$PRY"
+  echo
+fi
 
 exit 1
