@@ -10,16 +10,8 @@ fi
 echo "Testing $TEST_BRANCH"
 
 #DIFF_SEARCH=$(git diff --name-only $TEST_BRANCH..HEAD $AGAINST -G "binding\.pry")
-
-echo "HEAD"
-git diff --name-only HEAD
-
 echo "HEAD^"
-git diff --name-only HEAD^
-
-echo "test branch"
-echo $TEST_BRANCH
-git diff --name-only $TEST_BRANCH
+git diff --name-only HEAD^ $AGAINST -G "binding\.pry"
 
 echo "travis commit"
 echo $TRAVIS_COMMIT
@@ -27,8 +19,7 @@ git diff --name-only $TRAVIS_COMMIT
 
 echo "travis commit range"
 echo $TRAVIS_COMMIT_RANGE
-git diff --name-only $TRAVIS_COMMIT_RANGE
-
+git diff --name-only $TRAVIS_COMMIT_RANGE $AGAINST -G "binding\.pry"
 #DIFF_SEARCH=$(git diff --name-only $TEST_BRANCH)
 
 #echo "diff search is:"
