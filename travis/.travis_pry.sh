@@ -9,7 +9,9 @@ fi
 
 echo "Testing $TEST_BRANCH"
 
-DIFF_SEARCH=$(git diff --name-only $TEST_BRANCH HEAD^ $AGAINST -G "binding\.pry")
+#DIFF_SEARCH=$(git diff --name-only $TEST_BRANCH HEAD^ $AGAINST -G "binding\.pry")
+
+DIFF_SEARCH=$(git diff --name-only HEAD $(git merge-base HEAD $TEST_BRANCH) $AGAINST -G "binding\.pry")
 
 echo $DIFF_SEARCH
 
