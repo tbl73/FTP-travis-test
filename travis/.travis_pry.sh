@@ -4,6 +4,8 @@ DEBUGGERS_REGEX="binding\.pry|debugger"
 
 echo $DEBUGGERS_REGEX
 
+git diff --name-only HEAD^
+
 DIFF_SEARCH=$(git diff --name-only $AGAINST -G $DEBUGGERS_REGEX)
 
 echo $DIFF_SEARCH
@@ -13,6 +15,7 @@ if [ "$DIFF_SEARCH" ]; then
   echo
   printf "$DIFF_SEARCH"
   echo
+
 fi
 
-exit 1
+  exit 1
