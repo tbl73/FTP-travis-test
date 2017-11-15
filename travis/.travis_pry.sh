@@ -1,6 +1,14 @@
 #hook to prevent binding.pry getting into production code
 echo "Testing for binding.pry"
-echo $TRAVIS_COMMIT_RANGE
+
+echo "head to travis branch diff"
+
+git diff --name-only HEAD...$TRAVIS_BRANCH
+
+echo "head to travis branch diff with filter"
+git diff --name-only --diff-filter=AM HEAD...$TRAVIS_BRANCH
+
+echo "original search"
 
 DIFF_SEARCH=$(git diff --name-only $TRAVIS_COMMIT_RANGE $AGAINST -G "binding\.pry")
 
@@ -10,6 +18,6 @@ if [ "$DIFF_SEARCH" ]; then
   echo "Found binding.pry in these files:"
   printf "$DIFF_SEARCH"
   echo
-  exit 1
 fi
 
+  exit 1
