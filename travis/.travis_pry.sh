@@ -3,12 +3,12 @@ echo "Testing for binding.pry"
 
 echo "head to travis branch diff"
 
-TEST1=(git diff --name-only HEAD...$TRAVIS_BRANCH)
+TEST1=$(git diff --name-only HEAD...$TRAVIS_BRANCH $AGAINST -G "binding\.pry")
 
 echo $TEST1
 
 echo "head to travis branch diff with filter"
-TEST2=(git diff --name-only --diff-filter=AM HEAD...$TRAVIS_BRANCH)
+TEST2=$(git diff --name-only --diff-filter=AM HEAD...$TRAVIS_BRANCH $AGAINST -G "binding\.pry")
 
 echo $TEST2
 echo "original search"
