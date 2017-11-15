@@ -29,7 +29,7 @@ matrix:
       gemfile: gemfiles/Gemfile.mysql57
 
 before_install:
-#  - bash travis/.travis_pry.sh
+  - bash travis/.travis_pry.sh
   - sudo apt-get -qq update
   - sudo apt-get install ghostscript
   - sudo apt-get install graphviz
