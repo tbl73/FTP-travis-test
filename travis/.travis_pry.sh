@@ -3,13 +3,13 @@ echo "Testing for binding.pry"
 
 if [ $TRAVIS_PULL_REQUEST ]; then
   echo "Pull request"
-  TEST_BRANCH = $TRAVIS_PULL_REQUEST_BRANCH
+  TEST_BRANCH=$TRAVIS_PULL_REQUEST_BRANCH
 else
   echo "Push on branch"
-  TEST_BRANCH = $TRAVIS_BRANCH
+  TEST_BRANCH=$TRAVIS_BRANCH
 fi
 
-echo TEST_BRANCH
+echo $TEST_BRANCH
 
 DIFF_SEARCH=$(git diff --name-only  $AGAINST -G "binding\.pry")
 
