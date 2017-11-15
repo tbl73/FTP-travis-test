@@ -9,9 +9,11 @@ fi
 
 echo "Testing $TEST_BRANCH"
 
-DIFF_SEARCH=$(git diff --name-only $TEST_BRANCH..HEAD $AGAINST -G "binding\.pry")
+#DIFF_SEARCH=$(git diff --name-only $TEST_BRANCH..HEAD $AGAINST -G "binding\.pry")
 
-echo "dif search is:"
+DIFF_SEARCH=$(git diff --name-only)
+
+echo "diff search is:"
 echo $DIFF_SEARCH
 
 if [ "$DIFF_SEARCH" ]; then
