@@ -1,5 +1,6 @@
 #hook to prevent binding.pry getting into production code
 echo "Testing for binding.pry"
+echo $TRAVIS_COMMIT_RANGE
 
 DIFF_SEARCH=$(git diff --name-only $TRAVIS_COMMIT_RANGE $AGAINST -G "binding\.pry")
 
