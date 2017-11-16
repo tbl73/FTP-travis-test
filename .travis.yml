@@ -3,14 +3,11 @@ sudo: false
 language: ruby
 cache: bundler
 
-rvm:
-  - 2.2.0
-
 jobs:
   include:
-    - stage: pretest
+    - stage: test for pry
       before_install:
-      - bash travis/.travis_pry.sh
+      - travis/.travis_pry.sh
       install: skip
       script: skip
     - stage: test
