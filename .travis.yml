@@ -6,11 +6,17 @@ cache: bundler
 rvm:
   - 2.2.0
 
-matrix:
+jobs:
   include:
-    - rvm: 2.2.0
-      env: DB=mysql
-      gemfile: Gemfile
+    - stage: pretest
+      before_install:
+        - bash travis/.travis_pry.sh
+      install: skip
+      script: skip
+    - stage: test
+        rvm: 2.2.0
+        env: DB=mysql
+        gemfile: Gemfile
 #    - rvm: 2.2.0
 #      env: DB=mysql
 #      gemfile: gemfiles/Gemfile.mysql57
@@ -29,7 +35,6 @@ matrix:
 #      gemfile: gemfiles/Gemfile.mysql57
 
 before_install:
-  - bash travis/.travis_pry.sh
   - sudo apt-get -qq update
   - sudo apt-get install ghostscript
   - sudo apt-get install graphviz
