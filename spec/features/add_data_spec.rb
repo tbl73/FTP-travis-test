@@ -57,7 +57,6 @@ describe "uploads data for collections", :order => :defined do
     expect((@collection.works.last.title).length).to be < 255
     new_works = Work.all.count
     expect(new_works).to eq (works_count + 1)
-    binding.pry
   end
 
   it "creates an empty work" do
