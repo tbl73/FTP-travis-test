@@ -8,6 +8,7 @@ rvm: 2.2.0
 jobs:
   include:
     - stage: test for pry
+      rvm: default
       before_install:
       - bash travis/.travis_pry.sh
       install: skip
