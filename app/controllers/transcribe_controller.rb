@@ -25,7 +25,7 @@ class TranscribeController  < ApplicationController
 
   def guest
   end
-
+binding.pry
   def mark_page_blank
     if params[:page]['mark_blank'] == '1'
       @page.status = Page::STATUS_BLANK
