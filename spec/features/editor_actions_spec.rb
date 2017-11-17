@@ -25,8 +25,6 @@ describe "editor actions" , :order => :defined do
   end
 
   it "checks that a restricted editor can't see a work" do
-#binding.pry
-    binding.pry
     logout(:user)
     @rest_user = User.find_by(login: REST_USER)
     login_as(@rest_user, :scope => :user)
