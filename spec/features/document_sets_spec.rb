@@ -10,6 +10,7 @@ describe "document sets", :order => :defined do
   end
 
   before :each do
+    binding.pry
     @document_sets = DocumentSet.where(owner_user_id: @owner.id)
     @set = DocumentSet.first
   end
