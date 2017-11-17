@@ -24,7 +24,7 @@ class WorkController < ApplicationController
       ajax_redirect_to dashboard_path
     end
   end
-binding.pry
+
   def make_pdf
     # don't think there should be much to do here.
   end
